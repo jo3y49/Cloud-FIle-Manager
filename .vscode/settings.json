@@ -1,3 +1,5 @@
 {
-    "dotnet.defaultSolution": "FileManager.sln"
+    "dotnet.defaultSolution": "FileManager.sln",
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "FileManager/bin/Release/net8.0/publish"
 }

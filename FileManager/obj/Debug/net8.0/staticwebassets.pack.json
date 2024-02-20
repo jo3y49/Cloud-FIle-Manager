@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FileManager.bundle.scp.css",
+      "PackagePath": "staticwebassets\\FileManager.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FileManager.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.FileManager.props",
+      "PackagePath": "build\\FileManager.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.FileManager.props",
+      "PackagePath": "buildMultiTargeting\\FileManager.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.FileManager.props",
+      "PackagePath": "buildTransitive\\FileManager.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
