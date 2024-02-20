@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dEniWTKPDL1lgHAJYKIU3PyRmmdreKKd9HrIvK4zmd8=",
+  "Hash": "T70L4F98EwLZD9pMd32XGjdGWFQKnvrEs2eXjIcsDvo=",
   "Source": "FileManager",
   "BasePath": "_content/FileManager",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "FileManager\\wwwroot",
       "Source": "FileManager",
-      "ContentRoot": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\",
+      "ContentRoot": "D:\\Stuff\\Projects\\Cloud\\FileManager\\Filemanager\\wwwroot\\",
       "BasePath": "_content/FileManager",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FileManager.styles.css",
+      "Identity": "D:\\Stuff\\Projects\\Cloud\\FileManager\\Filemanager\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FileManager.styles.css",
       "SourceId": "FileManager",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\Stuff\\Projects\\Cloud\\FileManager\\Filemanager\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/FileManager",
       "RelativePath": "FileManager.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FileManager.styles.css"
+      "OriginalItemSpec": "D:\\Stuff\\Projects\\Cloud\\FileManager\\Filemanager\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FileManager.styles.css"
     },
     {
-      "Identity": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FileManager.bundle.scp.css",
+      "Identity": "D:\\Stuff\\Projects\\Cloud\\FileManager\\Filemanager\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FileManager.bundle.scp.css",
       "SourceId": "FileManager",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\Stuff\\Projects\\Cloud\\FileManager\\Filemanager\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/FileManager",
       "RelativePath": "FileManager.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FileManager.bundle.scp.css"
+      "OriginalItemSpec": "D:\\Stuff\\Projects\\Cloud\\FileManager\\Filemanager\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FileManager.bundle.scp.css"
     },
     {
-      "Identity": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\app.css",
+      "Identity": "D:\\Stuff\\Projects\\Cloud\\FileManager\\Filemanager\\wwwroot\\app.css",
       "SourceId": "FileManager",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\",
+      "ContentRoot": "D:\\Stuff\\Projects\\Cloud\\FileManager\\Filemanager\\wwwroot\\",
       "BasePath": "_content/FileManager",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "D:\\Stuff\\Projects\\Cloud\\FileManager\\Filemanager\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "FileManager",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\",
+      "ContentRoot": "D:\\Stuff\\Projects\\Cloud\\FileManager\\Filemanager\\wwwroot\\",
       "BasePath": "_content/FileManager",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "D:\\Stuff\\Projects\\Cloud\\FileManager\\Filemanager\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "FileManager",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\",
+      "ContentRoot": "D:\\Stuff\\Projects\\Cloud\\FileManager\\Filemanager\\wwwroot\\",
       "BasePath": "_content/FileManager",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\favicon.png",
+      "Identity": "D:\\Stuff\\Projects\\Cloud\\FileManager\\Filemanager\\wwwroot\\favicon.png",
       "SourceId": "FileManager",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\",
+      "ContentRoot": "D:\\Stuff\\Projects\\Cloud\\FileManager\\Filemanager\\wwwroot\\",
       "BasePath": "_content/FileManager",
       "RelativePath": "favicon.png",
       "AssetKind": "All",

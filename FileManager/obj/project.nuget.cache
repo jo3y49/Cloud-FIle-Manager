@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Vb7Z91hv+VjGgzNtOAWiCnEiYovbDzJ9u7ZxAlXzrTjewosUFFVvWzYvymPRU7mVHzBVOOmOi5cbDyFrlW6QdA==",
+  "dgSpecHash": "j16QDz2Gv4I5gKB1PvHilxtH/epM8IWd13vICDxM4cCpWqTtje6gDDRidXibKcSXslcwhvpCxSvXbxRovQZOvw==",
   "success": true,
-  "projectFilePath": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\FileManager.csproj",
+  "projectFilePath": "D:\\Stuff\\Projects\\Cloud\\FileManager\\Filemanager\\FileManager.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
