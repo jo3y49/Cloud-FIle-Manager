@@ -11,6 +11,8 @@ D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\FileManager.Ass
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\FileManager.AssemblyInfo.cs
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\FileManager.csproj.CoreCompileInputs.cache
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\FileManager.MvcApplicationPartsAssemblyInfo.cache
+D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\FileManager.RazorAssemblyInfo.cache
+D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\FileManager.RazorAssemblyInfo.cs
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\FileManager.sourcelink.json
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\staticwebassets.build.json
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\staticwebassets.development.json
@@ -19,8 +21,7 @@ D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\staticwebassets
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.FileManager.props
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.FileManager.props
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\staticwebassets.pack.json
-D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
-D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\scopedcss\bundle\FileManager.styles.css
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\scopedcss\projectbundle\FileManager.bundle.scp.css
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\FileManager.dll
