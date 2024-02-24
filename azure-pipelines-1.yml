@@ -22,12 +22,14 @@ steps:
     restoreSolution: '$(solution)'
 
 - task: DotNetCoreCLI@2
+  displayName: DotNetBuild
   inputs:
     command: 'build'
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
+  displayName: DotNetPublish
   inputs:
     command: 'publish'
     publishWebProjects: True
@@ -35,9 +37,10 @@ steps:
     zipAfterPublish: True
 
 - task: AzureRmWebAppDeployment@4
+  displayName: AzureDeployment
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: '$(azureSubscription)'
     appType: 'webApp'
-    WebAppName: 'FileManager'
+    WebAppName: '$(appName)'
     packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
