@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Azure.Storage.Blobs;
-using System.Diagnostics;
 using Azure.Identity;
 
 namespace FileManager.Pages
@@ -23,23 +22,23 @@ namespace FileManager.Pages
             {
                 if (file == null || file.Length == 0)
                 {
-                    _logger.LogInformation("File not found");
+                    Console.WriteLine("File not found");
                     return RedirectToPage("Index");
                 }
 
-                _logger.LogInformation("File found");
+                Console.WriteLine("File found");
 
-                var connection = _configuration["ConnectionStrings:StorageAccountName"];
+                var connection = Environment.GetEnvironmentVariable("StorageAccountName");
                 var containerName = "test-container";
                 
-                _logger.LogInformation("Setting up blob service client");
+                Console.WriteLine("Setting up blob service client");
                 var blobServiceClient = new BlobServiceClient(new Uri($"https://{connection}.blob.core.windows.net/"), new DefaultAzureCredential());
 
-                _logger.LogInformation("Getting blob container");
+                Console.WriteLine("Getting blob container");
                 var blobContainerClient = blobServiceClient.GetBlobContainerClient(containerName);
                 await blobContainerClient.CreateIfNotExistsAsync();
 
-                _logger.LogInformation("Uploading file to blob storage");
+                Console.WriteLine("Uploading file to blob storage");
                 var blobClient = blobContainerClient.GetBlobClient(file.FileName);
 
                 using (var stream = file.OpenReadStream())
@@ -47,12 +46,12 @@ namespace FileManager.Pages
                     await blobClient.UploadAsync(stream, true);
                 }
                 
-                _logger.LogInformation("File found");
+                Console.WriteLine("File found");
                 return RedirectToPage("TestUpload");
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "An error occurred while uploading the file");
+                Console.WriteLine("An error occurred while uploading the file");
                 // Handle the exception or rethrow it
                 return RedirectToPage("Privacy");
             }
