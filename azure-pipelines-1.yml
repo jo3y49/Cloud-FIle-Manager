@@ -37,18 +37,18 @@ steps:
     zipAfterPublish: True
 
 - task: AzureWebApp@1
-  displayName: 'BlobStorage'
+  displayName: AzureDeployment
   inputs:
     azureSubscription: '$(azureSubscription)'
-    appName: '$(blobAppName)'
+    appName: '$(appName)'
     package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
     appSettings: '-AzureBlobStorageConnectionString $(blobString)'
 
-- task: AzureRmWebAppDeployment@4
-  displayName: AzureDeployment
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: '$(azureSubscription)'
-    appType: 'webApp'
-    WebAppName: '$(appName)'
-    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+# - task: AzureRmWebAppDeployment@4
+#   displayName: 
+#   inputs:
+#     ConnectionType: 'AzureRM'
+#     azureSubscription: '$(azureSubscription)'
+#     appType: 'webApp'
+#     WebAppName: '$(appName)'
+#     packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
