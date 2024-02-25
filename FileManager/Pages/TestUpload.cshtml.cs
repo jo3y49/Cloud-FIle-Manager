@@ -18,32 +18,43 @@ namespace FileManager.Pages
 
         public async Task<IActionResult> OnPostUploadAsync(IFormFile file)
         {
-            if (file == null || file.Length == 0)
+            try
             {
-                _logger.LogInformation("File not found");
-                return RedirectToPage("Index");
+                if (file == null || file.Length == 0)
+                {
+                    _logger.LogInformation("File not found");
+                    return RedirectToPage("Index");
+                }
+
+                _logger.LogInformation("File found");
+
+                var connectionString = _configuration["ConnectionStrings:AzureBlobStorageConnectionString"];
+                var containerName = "test-container";
+                
+                _logger.LogInformation("Setting up blob service client");
+                var blobServiceClient = new BlobServiceClient(connectionString);
+
+                _logger.LogInformation("Getting blob container");
+                var blobContainerClient = blobServiceClient.GetBlobContainerClient(containerName);
+                await blobContainerClient.CreateIfNotExistsAsync();
+
+                _logger.LogInformation("Uploading file to blob storage");
+                var blobClient = blobContainerClient.GetBlobClient(file.FileName);
+
+                using (var stream = file.OpenReadStream())
+                {
+                    await blobClient.UploadAsync(stream, true);
+                }
+                
+                _logger.LogInformation("File found");
+                return RedirectToPage("TestUpload");
             }
-
-            var connectionString = _configuration["ConnectionStrings:AzureBlobStorageConnectionString"];
-            var containerName = "test-container";
-            
-            _logger.LogInformation("Setting up blob service client");
-            var blobServiceClient = new BlobServiceClient(connectionString);
-
-            _logger.LogInformation("Getting blob container");
-            var blobContainerClient = blobServiceClient.GetBlobContainerClient(containerName);
-            await blobContainerClient.CreateIfNotExistsAsync();
-
-            _logger.LogInformation("Uploading file to blob storage");
-            var blobClient = blobContainerClient.GetBlobClient(file.FileName);
-
-            using (var stream = file.OpenReadStream())
+            catch (Exception ex)
             {
-                await blobClient.UploadAsync(stream, true);
+                _logger.LogError(ex, "An error occurred while uploading the file");
+                // Handle the exception or rethrow it
+                return RedirectToPage("Privacy");
             }
-            
-            _logger.LogInformation("File found");
-            return RedirectToPage("UploadSuccess");
         }
     }
 }
