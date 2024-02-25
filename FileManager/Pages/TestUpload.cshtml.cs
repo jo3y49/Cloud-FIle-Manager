@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Azure.Storage.Blobs;
 using Azure.Identity;
+using Azure.Storage.Blobs.Models;
+using System.Linq;
 
 namespace FileManager.Pages
 {
@@ -9,11 +11,13 @@ namespace FileManager.Pages
     {
         private readonly ILogger<TestUploadModel> _logger;
         private readonly IConfiguration _configuration;
+        private readonly string? _connectionString;
 
         public TestUploadModel(ILogger<TestUploadModel> logger, IConfiguration configuration)
         {
             _logger = logger;
             _configuration = configuration;
+            _connectionString = Environment.GetEnvironmentVariable("StorageAccountName");
         }
 
         public async Task<IActionResult> OnPostUploadAsync(IFormFile file)
@@ -28,11 +32,9 @@ namespace FileManager.Pages
 
                 Console.WriteLine("File found");
 
-                var connection = Environment.GetEnvironmentVariable("StorageAccountName");
                 var containerName = "test-container";
-                
-                Console.WriteLine("Setting up blob service client");
-                var blobServiceClient = new BlobServiceClient(new Uri($"https://{connection}.blob.core.windows.net/"), new DefaultAzureCredential());
+
+                var blobServiceClient = new BlobServiceClient(new Uri($"https://{_connectionString}.blob.core.windows.net/"), new DefaultAzureCredential());
 
                 Console.WriteLine("Getting blob container");
                 var blobContainerClient = blobServiceClient.GetBlobContainerClient(containerName);
@@ -52,6 +54,43 @@ namespace FileManager.Pages
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred while uploading the file");
+                // Handle the exception or rethrow it
+                return RedirectToPage("Privacy");
+            }
+        }
+
+        public async Task<IActionResult> OnDownloadAsync()
+        {
+            try
+            {
+                var blobServiceClient = new BlobServiceClient(new Uri($"https://{_connectionString}.blob.core.windows.net/"), new DefaultAzureCredential());
+                var containerName = "test-container";
+                var blobContainerClient = blobServiceClient.GetBlobContainerClient(containerName);
+                var blobs = blobContainerClient.GetBlobsAsync();
+
+                List<BlobItem> blobItems = new List<BlobItem>();
+                await foreach (var blobItem in blobs)
+                {
+                    blobItems.Add(blobItem);
+                }
+
+                var mostRecentBlob = blobItems.OrderByDescending(b => b.Properties.LastModified).FirstOrDefault();
+
+                if (mostRecentBlob != null)
+                {
+                    // Do something with the most recently uploaded file
+                    Console.WriteLine($"Most recently uploaded file: {mostRecentBlob.Name}");
+                }
+                else
+                {
+                    Console.WriteLine("No files found in the container");
+                }
+
+                return RedirectToPage("TestUpload");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while retrieving the most recently uploaded file");
                 // Handle the exception or rethrow it
                 return RedirectToPage("Privacy");
             }
