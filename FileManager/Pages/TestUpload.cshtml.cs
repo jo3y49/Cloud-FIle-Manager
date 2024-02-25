@@ -4,6 +4,7 @@ using Azure.Storage.Blobs;
 using Azure.Identity;
 using Azure.Storage.Blobs.Models;
 using System.Linq;
+using Azure.Storage;
 
 namespace FileManager.Pages
 {
@@ -11,14 +12,37 @@ namespace FileManager.Pages
     {
         private readonly ILogger<TestUploadModel> _logger;
         private readonly IConfiguration _configuration;
-        private readonly string? _connectionString;
+        private readonly BlobServiceClient _blobServiceClient;
 
-        public TestUploadModel(ILogger<TestUploadModel> logger, IConfiguration configuration)
+        public TestUploadModel(ILogger<TestUploadModel> logger, IConfiguration configuration, BlobServiceClient blobServiceClient)
         {
             _logger = logger;
             _configuration = configuration;
-            _connectionString = Environment.GetEnvironmentVariable("StorageAccountName");
+            _blobServiceClient = blobServiceClient;
         }
+
+        // private BlobServiceClient GetBlobServiceClient()
+        // {
+        //     // Check if running in development
+        //     if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
+        //     {
+        //         Console.WriteLine("Running in development environment");
+        //         // Azurite default settings
+        //         string azuriteAccountName = "devstoreaccount1";
+        //         string azuriteAccountKey = "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==";
+        //         Uri azuriteBlobEndpoint = new Uri("http://127.0.0.1:10000/devstoreaccount1");
+
+        //         // Use Azurite for local development
+        //         var credential = new StorageSharedKeyCredential(azuriteAccountName, azuriteAccountKey);
+        //         return new BlobServiceClient(azuriteBlobEndpoint, credential);
+        //     }
+        //     else
+        //     {
+        //         Console.WriteLine("Running in production environment");
+        //         // Use Azure Blob Storage for production
+        //         return new BlobServiceClient(new Uri($"https://{_blobName}.blob.core.windows.net/"), new DefaultAzureCredential());
+        //     }
+        // }
 
         public async Task<IActionResult> OnPostUploadAsync(IFormFile file)
         {
@@ -34,10 +58,8 @@ namespace FileManager.Pages
 
                 var containerName = "test-container";
 
-                var blobServiceClient = new BlobServiceClient(new Uri($"https://{_connectionString}.blob.core.windows.net/"), new DefaultAzureCredential());
-
                 Console.WriteLine("Getting blob container");
-                var blobContainerClient = blobServiceClient.GetBlobContainerClient(containerName);
+                var blobContainerClient = _blobServiceClient.GetBlobContainerClient(containerName);
                 await blobContainerClient.CreateIfNotExistsAsync();
 
                 Console.WriteLine("Uploading file to blob storage");
@@ -63,10 +85,8 @@ namespace FileManager.Pages
         {
             try
             {
-                Console.WriteLine("Getting blob container");
-                var blobServiceClient = new BlobServiceClient(new Uri($"https://{_connectionString}.blob.core.windows.net/"), new DefaultAzureCredential());
                 var containerName = "test-container";
-                var blobContainerClient = blobServiceClient.GetBlobContainerClient(containerName);
+                var blobContainerClient = _blobServiceClient.GetBlobContainerClient(containerName);
                 Console.WriteLine("Getting blobs");
                 var blobs = blobContainerClient.GetBlobsAsync();
 
