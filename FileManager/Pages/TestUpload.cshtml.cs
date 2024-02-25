@@ -80,6 +80,14 @@ namespace FileManager.Pages
                 {
                     // Do something with the most recently uploaded file
                     Console.WriteLine($"Most recently uploaded file: {mostRecentBlob.Name}");
+
+                    var blobClient = blobContainerClient.GetBlobClient(mostRecentBlob.Name);
+                    var stream = new MemoryStream();
+                    await blobClient.DownloadToAsync(stream);
+                    stream.Position = 0; // Reset stream position to the beginning
+
+                    // Return the file to download
+                    return File(stream, "application/octet-stream", mostRecentBlob.Name);
                 }
                 else
                 {
