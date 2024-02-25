@@ -42,7 +42,7 @@ steps:
     azureSubscription: '$(azureSubscription)'
     appName: '$(appName)'
     package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
-    appSettings: '-AzureBlobStorageConnectionString $(blobString)'
+    appSettings: '-StorageAccountName $(blobName)'
 
 # - task: AzureRmWebAppDeployment@4
 #   displayName: 

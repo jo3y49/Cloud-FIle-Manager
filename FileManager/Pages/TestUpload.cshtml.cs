@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Azure.Storage.Blobs;
 using System.Diagnostics;
+using Azure.Identity;
 
 namespace FileManager.Pages
 {
@@ -28,11 +29,11 @@ namespace FileManager.Pages
 
                 _logger.LogInformation("File found");
 
-                var connectionString = _configuration["ConnectionStrings:AzureBlobStorageConnectionString"];
+                var connection = _configuration["ConnectionStrings:StorageAccountName"];
                 var containerName = "test-container";
                 
                 _logger.LogInformation("Setting up blob service client");
-                var blobServiceClient = new BlobServiceClient(connectionString);
+                var blobServiceClient = new BlobServiceClient(new Uri($"https://{connection}.blob.core.windows.net/"), new DefaultAzureCredential());
 
                 _logger.LogInformation("Getting blob container");
                 var blobContainerClient = blobServiceClient.GetBlobContainerClient(containerName);
