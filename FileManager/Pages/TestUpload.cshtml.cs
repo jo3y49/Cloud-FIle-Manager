@@ -59,13 +59,15 @@ namespace FileManager.Pages
             }
         }
 
-        public async Task<IActionResult> OnDownloadAsync()
+        public async Task<IActionResult> OnGetDownloadAsync()
         {
             try
             {
+                Console.WriteLine("Getting blob container");
                 var blobServiceClient = new BlobServiceClient(new Uri($"https://{_connectionString}.blob.core.windows.net/"), new DefaultAzureCredential());
                 var containerName = "test-container";
                 var blobContainerClient = blobServiceClient.GetBlobContainerClient(containerName);
+                Console.WriteLine("Getting blobs");
                 var blobs = blobContainerClient.GetBlobsAsync();
 
                 List<BlobItem> blobItems = new List<BlobItem>();
