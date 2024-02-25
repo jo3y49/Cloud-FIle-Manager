@@ -36,6 +36,14 @@ steps:
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
 
+- task: AzureWebApp@1
+  displayName: 'BlobStorage'
+  inputs:
+    azureSubscription: '$(azureSubscription)'
+    appName: '$(blobAppName)'
+    package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+    appSettings: '-AzureBlobStorageConnectionString $(blobString)'
+
 - task: AzureRmWebAppDeployment@4
   displayName: AzureDeployment
   inputs:

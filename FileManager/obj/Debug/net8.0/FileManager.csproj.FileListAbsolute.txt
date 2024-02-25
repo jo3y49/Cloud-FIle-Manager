@@ -29,3 +29,11 @@ D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\refint\FileMana
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\FileManager.pdb
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\FileManager.genruntimeconfig.cache
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\ref\FileManager.dll
+D:\Stuff\Projects\Cloud\FileManager\FileManager\bin\Debug\net8.0\Azure.Core.dll
+D:\Stuff\Projects\Cloud\FileManager\FileManager\bin\Debug\net8.0\Azure.Storage.Blobs.dll
+D:\Stuff\Projects\Cloud\FileManager\FileManager\bin\Debug\net8.0\Azure.Storage.Common.dll
+D:\Stuff\Projects\Cloud\FileManager\FileManager\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Stuff\Projects\Cloud\FileManager\FileManager\bin\Debug\net8.0\System.IO.Hashing.dll
+D:\Stuff\Projects\Cloud\FileManager\FileManager\bin\Debug\net8.0\System.Memory.Data.dll
+D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\FileManager.csproj.AssemblyReference.cache
+D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\FileMana.0F99248D.Up2Date
