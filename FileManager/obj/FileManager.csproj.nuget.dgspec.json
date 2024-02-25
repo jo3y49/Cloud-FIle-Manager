@@ -45,6 +45,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Azure.Identity": {
+              "target": "Package",
+              "version": "[1.10.4, )"
+            },
             "Azure.Storage.Blobs": {
               "target": "Package",
               "version": "[12.19.1, )"

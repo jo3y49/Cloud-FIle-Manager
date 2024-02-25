@@ -37,3 +37,9 @@ D:\Stuff\Projects\Cloud\FileManager\FileManager\bin\Debug\net8.0\System.IO.Hashi
 D:\Stuff\Projects\Cloud\FileManager\FileManager\bin\Debug\net8.0\System.Memory.Data.dll
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\FileManager.csproj.AssemblyReference.cache
 D:\Stuff\Projects\Cloud\FileManager\FileManager\obj\Debug\net8.0\FileMana.0F99248D.Up2Date
+D:\Stuff\Projects\Cloud\FileManager\FileManager\bin\Debug\net8.0\Azure.Identity.dll
+D:\Stuff\Projects\Cloud\FileManager\FileManager\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+D:\Stuff\Projects\Cloud\FileManager\FileManager\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Stuff\Projects\Cloud\FileManager\FileManager\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Stuff\Projects\Cloud\FileManager\FileManager\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+D:\Stuff\Projects\Cloud\FileManager\FileManager\bin\Debug\net8.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
