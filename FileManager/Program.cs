@@ -16,6 +16,7 @@ builder.Services.AddSingleton((serviceProvider) =>
         Console.WriteLine("Running in development environment");
         // Use Azurite in development
         string azuriteConnectionString = "UseDevelopmentStorage=true"; // Shortcut for Azurite
+        Console.WriteLine($"Azurite connection string: {azuriteConnectionString}");
         return new BlobServiceClient(azuriteConnectionString);
     }
     else
@@ -30,6 +31,8 @@ builder.Services.AddSingleton((serviceProvider) =>
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddScoped<ISasTokenService, SasTokenService>();
 
 var app = builder.Build();
 

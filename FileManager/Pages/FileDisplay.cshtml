@@ -4,3 +4,28 @@
     ViewData["FileDisplay"] = "Files";
 }
 <h1>@ViewData["FileDisplay"]</h1>
+
+@if (Model.BlobsInfo.Count > 0)
+{
+    <ul>
+    @foreach (var blobInfo in Model.BlobsInfo)
+    {
+        <li>
+            @if (!string.IsNullOrEmpty(blobInfo.Url))
+            {
+                <img src="@blobInfo.Url" alt="Image Preview" style="width: 100px; height: auto;" />
+            }
+            else {
+                
+            }
+            @blobInfo.Name 
+            <a asp-page-handler="Download" asp-route-filename="@blobInfo.Name" class="btn btn-primary">Download</a></li>
+            
+    }
+    </ul>
+}
+else
+{
+    <p>No files found. Upload some at </p>
+}
+

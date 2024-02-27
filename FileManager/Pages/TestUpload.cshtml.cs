@@ -21,29 +21,6 @@ namespace FileManager.Pages
             _blobServiceClient = blobServiceClient;
         }
 
-        // private BlobServiceClient GetBlobServiceClient()
-        // {
-        //     // Check if running in development
-        //     if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")
-        //     {
-        //         Console.WriteLine("Running in development environment");
-        //         // Azurite default settings
-        //         string azuriteAccountName = "devstoreaccount1";
-        //         string azuriteAccountKey = "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==";
-        //         Uri azuriteBlobEndpoint = new Uri("http://127.0.0.1:10000/devstoreaccount1");
-
-        //         // Use Azurite for local development
-        //         var credential = new StorageSharedKeyCredential(azuriteAccountName, azuriteAccountKey);
-        //         return new BlobServiceClient(azuriteBlobEndpoint, credential);
-        //     }
-        //     else
-        //     {
-        //         Console.WriteLine("Running in production environment");
-        //         // Use Azure Blob Storage for production
-        //         return new BlobServiceClient(new Uri($"https://{_blobName}.blob.core.windows.net/"), new DefaultAzureCredential());
-        //     }
-        // }
-
         public async Task<IActionResult> OnPostUploadAsync(IFormFile file)
         {
             try
@@ -73,7 +50,7 @@ namespace FileManager.Pages
                 Console.WriteLine("File found");
                 return RedirectToPage("TestUpload");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Console.WriteLine("An error occurred while uploading the file");
                 // Handle the exception or rethrow it
@@ -118,7 +95,7 @@ namespace FileManager.Pages
 
                 return RedirectToPage("TestUpload");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Console.WriteLine("An error occurred while retrieving the most recently uploaded file");
                 // Handle the exception or rethrow it
