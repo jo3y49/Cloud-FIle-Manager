@@ -21,32 +21,33 @@ namespace FileManager.Pages
             _blobServiceClient = blobServiceClient;
         }
 
-        public async Task<IActionResult> OnPostUploadAsync(IFormFile file)
+        public async Task<IActionResult> OnPostUploadAsync(List<IFormFile> files)
         {
             try
             {
-                if (file == null || file.Length == 0)
-                {
-                    Console.WriteLine("File not found");
-                    return RedirectToPage("Index");
-                }
-
-                Console.WriteLine("File found");
-
                 var containerName = "test-container";
 
                 Console.WriteLine("Getting blob container");
                 var blobContainerClient = _blobServiceClient.GetBlobContainerClient(containerName);
                 await blobContainerClient.CreateIfNotExistsAsync();
 
-                Console.WriteLine("Uploading file to blob storage");
-                var blobClient = blobContainerClient.GetBlobClient(file.FileName);
-
-                using (var stream = file.OpenReadStream())
+                foreach (var file in files)
                 {
-                    await blobClient.UploadAsync(stream, true);
+                    if (file == null || file.Length == 0)
+                    {
+                        Console.WriteLine("File not found");
+                        continue;
+                    }
+
+                    Console.WriteLine("Uploading file to blob storage");
+                    var blobClient = blobContainerClient.GetBlobClient(file.FileName);
+
+                    using (var stream = file.OpenReadStream())
+                    {
+                        await blobClient.UploadAsync(stream, true);
+                    }
                 }
-                
+
                 Console.WriteLine("File found");
                 return RedirectToPage("TestUpload");
             }

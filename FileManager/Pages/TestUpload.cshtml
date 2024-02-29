@@ -5,7 +5,138 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<form method="post" asp-page-handler="Upload" enctype="multipart/form-data">
-    <input type="file" name="file" />
-    <input type="submit" value="Upload" />
+<div id="drop_zone" style="border: 2px dashed #0087F7; border-radius: 5px; background: #F3F4F6; text-align: center; padding: 20px; font-size: 20px; color: #cccccc; min-height: 300px; position: relative;">
+    Drag and drop files here or click to select files
+    <div id="filePreview" style="
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px;
+        margin-top: 20px;">
+    </div>
+</div>
+<form method="post" asp-page-handler="Upload" enctype="multipart/form-data" style="display: none" >
+    <input type="file" id="fileInput" name="files" multiple onchange="handleFiles(this.files)" style="display: none;">
+    <input type="submit" value="Upload" class="btn btn-primary btn-sm" />
 </form>
+
+@section Scripts {
+    <script>
+        var dropZone = document.getElementById('drop_zone');
+        var fileInput = document.getElementById('fileInput');
+        var filePreview = document.getElementById('filePreview');
+        var accumulatedFiles = []; // Initialize an array to hold accumulated files
+
+        function updateFileInput() {
+            // Create a new DataTransfer object to accumulate files
+            var dataTransfer = new DataTransfer();
+            accumulatedFiles.forEach(file => dataTransfer.items.add(file));
+            // Update the file input's files property
+            fileInput.files = dataTransfer.files;
+        }
+
+        dropZone.addEventListener('click', function(e) {
+            fileInput.click(); // Simulate click on the file input when drop zone is clicked
+        });
+
+        dropZone.addEventListener('dragover', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+        });
+
+        dropZone.addEventListener('drop', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            var files = e.dataTransfer.files; // Get the files that were dropped
+
+            // Add the new files to the accumulatedFiles array
+            for (var i = 0; i < files.length; i++) {
+                if (!accumulatedFiles.find(f => f.name === files[i].name)) {
+                    accumulatedFiles.push(files[i]);
+                }
+            }
+
+            updateFileInput(); // Update the file input to reflect the accumulated files
+            handleFiles(accumulatedFiles); // Call a function to handle these files
+        });
+
+        fileInput.addEventListener('change', function(e) {
+            var files = e.target.files; // Get the files from the input
+
+            // Add the new files to the accumulatedFiles array
+            for (var i = 0; i < files.length; i++) {
+                if (!accumulatedFiles.find(f => f.name === files[i].name)) {
+                    accumulatedFiles.push(files[i]);
+                }
+            }
+
+            updateFileInput(); // Ensure the file input is updated
+            handleFiles(accumulatedFiles); // Call a function to handle these files
+        });
+
+        function handleFiles(files) {
+            filePreview.innerHTML = ""; // Clear existing previews
+            files.forEach(function(file) {
+                // Create a container for each image
+                var imgContainer = document.createElement("div");
+                imgContainer.classList.add("img-container");
+
+                var img = document.createElement("img");
+                img.classList.add("obj");
+                img.file = file;
+                imgContainer.appendChild(img); // Add the image to the container
+
+                filePreview.appendChild(imgContainer); // Add the container to the preview area
+
+                var reader = new FileReader();
+                reader.onload = (function(aImg) { return function(e) { aImg.src = e.target.result; }; })(img);
+                reader.readAsDataURL(file);
+            });
+            
+            var form = document.querySelector('form');
+            if (accumulatedFiles.length > 0) {
+                
+                form.style.display = 'block'; // Ensure the form is also visible
+                dropZone.classList.add("files-present");
+            } else {
+                
+                form.style.display = 'none'; // Ensure the form is also visible
+                dropZone.classList.remove("files-present");
+            }
+        }
+    </script>
+}
+
+<style>
+    .img-container {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        border-radius: 5px;
+        overflow: hidden;
+        display: inline-block; /* Ensure the container is inline */
+        position: relative; /* For potential additional styling/positioning */
+    }
+
+    #filePreview img {
+        width: 100%; /* This ensures the image covers the width of the container */
+        height: 100%; /* This ensures the image covers the height of the container */
+        object-fit: cover; /* This makes the image cover the area, cropping as needed */
+        position: absolute; /* Align the image properly within the container */
+        top: 0;
+        left: 0;
+    }
+    #drop_zone.files-present {
+        font-size: 0; /* Hide the text */
+    }
+    #drop_zone.files-present::after {
+        content: 'Drop more files here or click to select'; /* New prompt */
+        font-size: 20px; /* Restore font size */
+        color: #cccccc; /* Text color */
+    }
+    #uploadButton {
+        display: none; /* Initially hide the upload button */
+        margin-top: 20px;
+    }
+</style>
