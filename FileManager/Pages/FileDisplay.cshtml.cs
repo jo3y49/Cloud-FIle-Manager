@@ -61,9 +61,34 @@ namespace FileManager.Pages
             }
         }
 
+        public async Task<IActionResult> OnGetDeleteAsync(string filename)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(filename))
+                {
+                    return Content("Filename not specified.");
+                }
+
+                var containerName = "test-container";
+                var blobContainerClient = _blobServiceClient.GetBlobContainerClient(containerName);
+                
+                var blobClient = blobContainerClient.GetBlobClient(filename);
+                await blobClient.DeleteIfExistsAsync();
+
+                return RedirectToPage("FileDisplay");
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("An error occurred while deleting the file");
+                // Handle the exception or rethrow it
+                return RedirectToPage("Privacy");
+            }
+        }
+
         private static bool CheckIfImage(string fileType)
         {
-            string[] imageTypes = [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff"];
+            string[] imageTypes = [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".webp"];
             foreach (var type in imageTypes)
             {
                 if (fileType.Contains(type))

@@ -77,7 +77,8 @@ public class SasTokenService : ISasTokenService
             }
 
             // Use the key to get the SAS token
-            BlobSasQueryParameters sasQueryParameters = sasBuilder.ToSasQueryParameters(new StorageSharedKeyCredential(_blobServiceClient.AccountName, "<Your Storage Account Key>"));
+            var blobKey = Environment.GetEnvironmentVariable("StorageAccountKey");
+            BlobSasQueryParameters sasQueryParameters = sasBuilder.ToSasQueryParameters(new StorageSharedKeyCredential(_blobServiceClient.AccountName, blobKey));
             string sasToken = sasQueryParameters.ToString();
 
             return $"{blobClient.Uri}?{sasToken}";

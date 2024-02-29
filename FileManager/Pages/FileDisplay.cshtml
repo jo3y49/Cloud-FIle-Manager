@@ -19,13 +19,15 @@
                 
             }
             @blobInfo.Name 
-            <a asp-page-handler="Download" asp-route-filename="@blobInfo.Name" class="btn btn-primary">Download</a></li>
+            <a asp-page-handler="Download" asp-route-filename="@blobInfo.Name" class="btn btn-primary">Download</a>
+            <a asp-page-handler="Delete" asp-route-filename="@blobInfo.Name" class="btn btn-danger">Delete</a>
+        </li>
             
     }
     </ul>
 }
 else
 {
-    <p>No files found. Upload some at </p>
+    <p>No files found. Upload some on the <a href="~/TestUpload">upload page</a>.</p>
 }
 

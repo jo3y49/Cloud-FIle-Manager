@@ -16,12 +16,10 @@ builder.Services.AddSingleton((serviceProvider) =>
         Console.WriteLine("Running in development environment");
         // Use Azurite in development
         string azuriteConnectionString = "UseDevelopmentStorage=true"; // Shortcut for Azurite
-        Console.WriteLine($"Azurite connection string: {azuriteConnectionString}");
         return new BlobServiceClient(azuriteConnectionString);
     }
     else
     {
-        Console.WriteLine("Running in production environment");
         // Use Azure Blob Storage in production
         var blobName = Environment.GetEnvironmentVariable("StorageAccountName");
         var blobServiceUri = new Uri($"https://{blobName}.blob.core.windows.net/");
