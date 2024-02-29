@@ -21,6 +21,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\img\\placeholder.jpg",
+      "PackagePath": "staticwebassets\\img\\placeholder.jpg"
+    },
+    {
+      "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\img\\video-placeholder.jpg",
+      "PackagePath": "staticwebassets\\img\\video-placeholder.jpg"
+    },
+    {
+      "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\js\\fileDisplayHandler.js",
+      "PackagePath": "staticwebassets\\js\\fileDisplayHandler.js"
+    },
+    {
       "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\js\\fileUploadHandler.js",
       "PackagePath": "staticwebassets\\js\\fileUploadHandler.js"
     },

@@ -28,7 +28,7 @@ namespace FileManager.Pages
 
                 // Use the BlobClient to get the proper URL
                 var sasToken = _sasTokenService.GetBlobSasUri(containerName, blobItem.Name);
-                var blobUrl = CheckIfImage(fileType) ? $"{sasToken}" : string.Empty;
+                var blobUrl = sasToken;
 
                 BlobsInfo.Add(new BlobFileInfo { Name = blobItem.Name, FileType = fileType, Url = blobUrl });
             }
@@ -99,18 +99,6 @@ namespace FileManager.Pages
             return RedirectToPage();
         }
 
-        private static bool CheckIfImage(string fileType)
-        {
-            string[] imageTypes = [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".webp"];
-            foreach (var type in imageTypes)
-            {
-                if (fileType.Contains(type))
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
+        
     }
 }
