@@ -5,6 +5,8 @@
 }
 <h1>@ViewData["FileDisplay"]</h1>
 
+<link href="~/css/fileDisplay.css" rel="stylesheet" />
+
 @if (Model.BlobsInfo.Count > 0)
 {
     <div class="container">
@@ -12,17 +14,17 @@
             @foreach (var blobInfo in Model.BlobsInfo)
             {
                 <div class="col-md-4 text-center mb-4">
-                    <div class="blob-container" style="width: 150px; margin: 0 auto;">
+                    <div class="blob-container">
                         @if (!string.IsNullOrEmpty(blobInfo.Url))
                         {
-                            <div class="blob-image" style="width: 150px; height: 150px; overflow: hidden; position: relative;">
-                                <img src="@blobInfo.Url" alt="Image Preview" style="width: 100%; height: 100%; object-fit: cover;" />
+                            <div class="blob-image">
+                                <img src="@blobInfo.Url" alt="Image Preview"/>
                             </div>
                         }
-                        <div class="blob-info" style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap; width: 100%; font-size: 0.9em;">
+                        <div class="blob-info" >
                             @blobInfo.Name
                         </div>
-                        <div class="btn-group mt-2" role="group" aria-label="Blob Actions" style="gap: 5px;">
+                        <div class="btn-group" role="group" aria-label="Blob Actions">
                             <a asp-page-handler="Download" asp-route-filename="@blobInfo.Name" class="btn btn-primary btn-sm">Download</a>
                             <a asp-page-handler="Delete" asp-route-filename="@blobInfo.Name" class="btn btn-danger btn-sm">Delete</a>
                         </div>
@@ -34,5 +36,5 @@
 }
 else
 {
-    <p>No files found. Upload some on the <a href="~/TestUpload">upload page</a>.</p>
+    <p>No files found. Upload some on the <a href="~/FileUpload">upload page</a>.</p>
 }

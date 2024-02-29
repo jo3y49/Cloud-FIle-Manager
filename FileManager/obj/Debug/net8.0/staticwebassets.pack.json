@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\FileManager.bundle.scp.css"
     },
     {
+      "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\css\\fileUploadHandler.css",
+      "PackagePath": "staticwebassets\\css\\fileUploadHandler.css"
+    },
+    {
       "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\js\\fileUploadHandler.js",
+      "PackagePath": "staticwebassets\\js\\fileUploadHandler.js"
     },
     {
       "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\js\\site.js",

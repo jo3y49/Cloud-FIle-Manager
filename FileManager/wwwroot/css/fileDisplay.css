@@ -1,0 +1,30 @@
+.blob-container {
+    width: 150px;
+    margin: 0 auto;
+}
+
+.blob-image {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+.blob-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blob-info {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+.btn-group {
+    gap: 5px;
+    margin-top: 2px;
+}

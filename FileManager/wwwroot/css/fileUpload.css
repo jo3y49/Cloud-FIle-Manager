@@ -1,0 +1,47 @@
+.img-container {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: inline-block; /* Ensure the container is inline */
+    position: relative; /* For potential additional styling/positioning */
+}
+#filePreview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+#filePreview img {
+    width: 100%; /* This ensures the image covers the width of the container */
+    height: 100%; /* This ensures the image covers the height of the container */
+    object-fit: cover; /* This makes the image cover the area, cropping as needed */
+    position: absolute; /* Align the image properly within the container */
+    top: 0;
+    left: 0;
+}
+#drop_zone {
+    border: 2px dashed #0087F7;
+    border-radius: 5px;
+    background: #F3F4F6;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    color: #cccccc;
+    min-height: 300px;
+    position: relative;
+}
+#drop_zone.files-present {
+    font-size: 0; /* Hide the text */
+}
+#drop_zone.files-present::after {
+    content: 'Drop more files here or click to select'; /* New prompt */
+    font-size: 20px; /* Restore font size */
+    color: #cccccc; /* Text color */
+}
+#uploadButton {
+    width: 100%;
+    margin-top: 10px;
+}

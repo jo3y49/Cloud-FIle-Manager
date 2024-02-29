@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "obsfHHks6CUp0tkphNdZNb607clPS6kaDddULTBCR4o=",
+  "Hash": "NhvJbxggf9WAqOG5K+1v8mOstp09bGvXQhD3S5a6sVk=",
   "Source": "FileManager",
   "BasePath": "_content/FileManager",
   "Mode": "Default",
@@ -55,6 +55,25 @@
       "OriginalItemSpec": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FileManager.bundle.scp.css"
     },
     {
+      "Identity": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\css\\fileUploadHandler.css",
+      "SourceId": "FileManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\",
+      "BasePath": "_content/FileManager",
+      "RelativePath": "css/fileUploadHandler.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\fileUploadHandler.css"
+    },
+    {
       "Identity": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\css\\site.css",
       "SourceId": "FileManager",
       "SourceType": "Discovered",
@@ -91,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\js\\fileUploadHandler.js",
+      "SourceId": "FileManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\",
+      "BasePath": "_content/FileManager",
+      "RelativePath": "js/fileUploadHandler.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\fileUploadHandler.js"
     },
     {
       "Identity": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\js\\site.js",
