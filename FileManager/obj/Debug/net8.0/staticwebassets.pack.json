@@ -5,8 +5,12 @@
       "PackagePath": "staticwebassets\\FileManager.bundle.scp.css"
     },
     {
-      "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\css\\fileUploadHandler.css",
-      "PackagePath": "staticwebassets\\css\\fileUploadHandler.css"
+      "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\css\\fileDisplay.css",
+      "PackagePath": "staticwebassets\\css\\fileDisplay.css"
+    },
+    {
+      "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\css\\fileUpload.css",
+      "PackagePath": "staticwebassets\\css\\fileUpload.css"
     },
     {
       "Id": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\wwwroot\\css\\site.css",

@@ -18,7 +18,7 @@
                         @if (!string.IsNullOrEmpty(blobInfo.Url))
                         {
                             <div class="blob-image">
-                                <img src="@blobInfo.Url" alt="Image Preview"/>
+                                <img src="@blobInfo.Url" alt="Image Preview" onclick="showImageModal(this.src)"/>
                             </div>
                         }
                         <div class="blob-info" >
@@ -33,8 +33,31 @@
             }
         </div>
     </div>
+    <form method="post" asp-page-handler="DeleteAll">
+        <button type="submit" class="btn btn-danger">Delete All</button>
+    </form>
 }
 else
 {
     <p>No files found. Upload some on the <a href="~/FileUpload">upload page</a>.</p>
+}
+
+<div class="modal fade" id="imagePreviewModal" tabindex="-1" role="dialog" aria-labelledby="imagePreviewModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imagePreviewModalLabel"></h5>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" src="" class="img-fluid" alt="Preview">
+      </div>
+    </div>
+  </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/fileDisplayHandler.js"></script>
 }

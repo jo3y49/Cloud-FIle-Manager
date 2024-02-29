@@ -86,6 +86,19 @@ namespace FileManager.Pages
             }
         }
 
+        public async Task<IActionResult> OnPostDeleteAllAsync()
+        {
+            var containerClient = _blobServiceClient.GetBlobContainerClient("test-container");
+            await foreach (var blobItem in containerClient.GetBlobsAsync())
+            {
+                var blobClient = containerClient.GetBlobClient(blobItem.Name);
+                await blobClient.DeleteIfExistsAsync();
+            }
+
+            // Redirect to the same page to refresh the file list
+            return RedirectToPage();
+        }
+
         private static bool CheckIfImage(string fileType)
         {
             string[] imageTypes = [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".webp"];
