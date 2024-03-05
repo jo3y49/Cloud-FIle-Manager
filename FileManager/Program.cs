@@ -1,7 +1,18 @@
 using Azure.Identity;
 using Azure.Storage.Blobs;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using FileManager;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<DatabaseContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("SQLDatabaseString");
+    options.UseSqlServer(connectionString);
+});
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DatabaseContext>();
 
 // Register BlobServiceClient for DI
 builder.Services.AddSingleton((serviceProvider) =>
@@ -47,6 +58,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
