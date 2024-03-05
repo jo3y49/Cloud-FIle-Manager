@@ -61,7 +61,7 @@ namespace FileManager.Pages
             }
         }
 
-        public async Task<IActionResult> OnGetDeleteAsync(string filename)
+        public async Task<IActionResult> OnPostDeleteAsync(string filename)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace FileManager.Pages
                 var blobClient = blobContainerClient.GetBlobClient(filename);
                 await blobClient.DeleteIfExistsAsync();
 
-                return RedirectToPage("FileDisplay");
+                return RedirectToPage();
             }
             catch (Exception)
             {
@@ -88,11 +88,20 @@ namespace FileManager.Pages
 
         public async Task<IActionResult> OnPostDeleteAllAsync()
         {
-            var containerClient = _blobServiceClient.GetBlobContainerClient("test-container");
+            var containerName = "test-container";
+            var containerClient = _blobServiceClient.GetBlobContainerClient(containerName);
             await foreach (var blobItem in containerClient.GetBlobsAsync())
             {
                 var blobClient = containerClient.GetBlobClient(blobItem.Name);
-                await blobClient.DeleteIfExistsAsync();
+                try
+                {
+                    await blobClient.DeleteIfExistsAsync();
+                }
+                catch (Exception ex)
+                {
+                    // Log the error (consider using ILogger or a similar logging mechanism)
+                    Console.WriteLine($"Failed to delete {blobItem.Name}: {ex.Message}");
+                }
             }
 
             // Redirect to the same page to refresh the file list

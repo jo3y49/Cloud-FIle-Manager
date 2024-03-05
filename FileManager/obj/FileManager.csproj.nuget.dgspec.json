@@ -52,6 +52,28 @@
             "Azure.Storage.Blobs": {
               "target": "Package",
               "version": "[12.19.1, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.Azure.Management.Fluent": {
+              "target": "Package",
+              "version": "[1.38.1, )"
+            },
+            "Microsoft.Azure.Management.Storage.Fluent": {
+              "target": "Package",
+              "version": "[1.38.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.2, )"
             }
           },
           "imports": [
