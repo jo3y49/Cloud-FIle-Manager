@@ -5,16 +5,25 @@ using Microsoft.EntityFrameworkCore;
 using FileManager;
 
 var builder = WebApplication.CreateBuilder(args);
+bool IsDevelopment = builder.Environment.IsDevelopment();
 
-var keyVaultName = Environment.GetEnvironmentVariable("keyVaultName");
-builder.Configuration.AddAzureKeyVault(
+Console.WriteLine($"IsDevelopment: {IsDevelopment}");
+
+var sqlDatabaseString = "";
+
+if (!IsDevelopment)
+{
+    var keyVaultName = Environment.GetEnvironmentVariable("keyVaultName");
+    builder.Configuration.AddAzureKeyVault(
     new Uri($"https://{keyVaultName}.vault.azure.net/"),
     new DefaultAzureCredential());
 
+    sqlDatabaseString = builder.Configuration["sqlDatabaseString"];
+}
+
 builder.Services.AddDbContext<DatabaseContext>(options =>
 {
-    var connectionString = builder.Configuration["sqlDatabaseString"];
-    options.UseSqlServer(connectionString);
+    options.UseSqlServer(sqlDatabaseString);
 });
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DatabaseContext>();
@@ -23,13 +32,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddSingleton((serviceProvider) =>
 {
     var configuration = serviceProvider.GetRequiredService<IConfiguration>();
-    var env = serviceProvider.GetRequiredService<IHostEnvironment>();
 
     Console.WriteLine("Getting blob container");
 
-    if (env.IsDevelopment())
+    if (IsDevelopment)
     {
-        Console.WriteLine("Running in development environment");
         // Use Azurite in development
         string azuriteConnectionString = "UseDevelopmentStorage=true"; // Shortcut for Azurite
         return new BlobServiceClient(azuriteConnectionString);
@@ -51,7 +58,7 @@ builder.Services.AddScoped<ISasTokenService, SasTokenService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (!IsDevelopment)
 {
     app.UseExceptionHandler("/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.

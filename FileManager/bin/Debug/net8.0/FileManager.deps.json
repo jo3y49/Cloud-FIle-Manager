@@ -15,6 +15,7 @@
           "Microsoft.AspNetCore.Identity.UI": "8.0.2",
           "Microsoft.Azure.Management.Fluent": "1.38.1",
           "Microsoft.Azure.Management.Storage.Fluent": "1.38.1",
+          "Microsoft.EntityFrameworkCore.Design": "8.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.1"
