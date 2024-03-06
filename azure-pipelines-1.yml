@@ -20,6 +20,14 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
+    
+- task: AzureKeyVault@2
+  displayName: AzureKeyVault
+  inputs:
+    azureSubscription: '$(azureSubscription)'
+    KeyVaultName: '$(keyVault)'
+    SecretsFilter: '*'  # Fetch all secrets; or specify names like 'secret1,secret2'
+    RunAsPreJob: false  # Fetch secrets and make them available for the rest of the pipeline
 
 - task: DotNetCoreCLI@2
   displayName: DotNetBuild
@@ -42,4 +50,3 @@ steps:
     azureSubscription: '$(azureSubscription)'
     appName: '$(appName)'
     package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
-    appSettings: '-StorageAccountName $(blobName) -StorageAccountKey $(blobKey)'

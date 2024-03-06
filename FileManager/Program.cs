@@ -6,9 +6,14 @@ using FileManager;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var keyVaultName = builder.Configuration["KeyVaultName"];
+builder.Configuration.AddAzureKeyVault(
+    new Uri($"https://{keyVaultName}.vault.azure.net/"),
+    new DefaultAzureCredential());
+
 builder.Services.AddDbContext<DatabaseContext>(options =>
 {
-    var connectionString = builder.Configuration.GetConnectionString("SQLDatabaseString");
+    var connectionString = builder.Configuration["sqlDatabaseString"];
     options.UseSqlServer(connectionString);
 });
 
@@ -32,7 +37,7 @@ builder.Services.AddSingleton((serviceProvider) =>
     else
     {
         // Use Azure Blob Storage in production
-        var blobName = Environment.GetEnvironmentVariable("StorageAccountName");
+        var blobName = builder.Configuration["blobName"];
         var blobServiceUri = new Uri($"https://{blobName}.blob.core.windows.net/");
         return new BlobServiceClient(blobServiceUri, new DefaultAzureCredential());
     }
