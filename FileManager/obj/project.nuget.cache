@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JtL+LQOnwpO97eePbHse5SQl3vAbRznnTgLTHfSyCKkQ9bSuSzl7k+/pyEpVG24IfVzxxcCKb6dROpjsNrvNdQ==",
+  "dgSpecHash": "LMxGk1daC+gLVub6WEsxT9OBy2/bs0TD3R6CsLWC3QqQf04LXZZZg0tebN9uyU8ITnyTRJf5X3bytf2wmUOfZQ==",
   "success": true,
-  "projectFilePath": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\FileManager.csproj",
+  "projectFilePath": "D:\\Stuff\\Projects\\Cloud\\FileManager\\filemanager\\FileManager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\JO3Y4\\.nuget\\packages\\azure.core\\1.37.0\\azure.core.1.37.0.nupkg.sha512",
     "C:\\Users\\JO3Y4\\.nuget\\packages\\azure.extensions.aspnetcore.configuration.secrets\\1.3.1\\azure.extensions.aspnetcore.configuration.secrets.1.3.1.nupkg.sha512",

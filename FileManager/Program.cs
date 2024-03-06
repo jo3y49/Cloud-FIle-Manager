@@ -9,24 +9,27 @@ bool IsDevelopment = builder.Environment.IsDevelopment();
 
 Console.WriteLine($"IsDevelopment: {IsDevelopment}");
 
-var sqlDatabaseString = "";
-
 if (!IsDevelopment)
 {
     var keyVaultName = Environment.GetEnvironmentVariable("keyVaultName");
     builder.Configuration.AddAzureKeyVault(
     new Uri($"https://{keyVaultName}.vault.azure.net/"),
     new DefaultAzureCredential());
-
-    sqlDatabaseString = builder.Configuration["sqlDatabaseString"];
 }
 
 builder.Services.AddDbContext<DatabaseContext>(options =>
 {
-    options.UseSqlServer(sqlDatabaseString);
+    var sqlDatabaseString = builder.Configuration["sqlDatabaseString"];
+    options.UseSqlServer(sqlDatabaseString, sqlServerOptionsAction: sqlOptions =>
+    {
+        sqlOptions.EnableRetryOnFailure(
+            maxRetryCount: 5,
+            maxRetryDelay: TimeSpan.FromSeconds(30),
+            errorNumbersToAdd: null);
+    });
 });
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DatabaseContext>();
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DatabaseContext>();
 
 // Register BlobServiceClient for DI
 builder.Services.AddSingleton((serviceProvider) =>

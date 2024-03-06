@@ -22,8 +22,8 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        @* @if (User.Identity.IsAuthenticated)
-                        { *@
+                        @if (User.Identity.IsAuthenticated)
+                        {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/FileDisplay">Files</a>
                             </li>
@@ -33,16 +33,16 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
                             </li>
-                        @* }
+                        }
                         else
-                        { *@
+                        {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
                             </li>
-                        @* } *@
+                        }
                     </ul>
 
                 </div>

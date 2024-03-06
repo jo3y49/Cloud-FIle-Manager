@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\FileManager.csproj": {}
+    "D:\\Stuff\\Projects\\Cloud\\FileManager\\filemanager\\FileManager.csproj": {}
   },
   "projects": {
-    "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\FileManager.csproj": {
+    "D:\\Stuff\\Projects\\Cloud\\FileManager\\filemanager\\FileManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\FileManager.csproj",
+        "projectUniqueName": "D:\\Stuff\\Projects\\Cloud\\FileManager\\filemanager\\FileManager.csproj",
         "projectName": "FileManager",
-        "projectPath": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\FileManager.csproj",
+        "projectPath": "D:\\Stuff\\Projects\\Cloud\\FileManager\\filemanager\\FileManager.csproj",
         "packagesPath": "C:\\Users\\JO3Y4\\.nuget\\packages\\",
-        "outputPath": "D:\\Stuff\\Projects\\Cloud\\FileManager\\FileManager\\obj\\",
+        "outputPath": "D:\\Stuff\\Projects\\Cloud\\FileManager\\filemanager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JO3Y4\\AppData\\Roaming\\NuGet\\NuGet.Config",
