@@ -10,11 +10,13 @@ public interface ISasTokenService
 public class SasTokenService : ISasTokenService
 {
     private readonly BlobServiceClient _blobServiceClient;
+    private readonly IConfiguration _configuration;
     private readonly bool _isDevelopment;
 
-    public SasTokenService(BlobServiceClient blobServiceClient, IHostEnvironment env)
+    public SasTokenService(BlobServiceClient blobServiceClient, IConfiguration configuration, IHostEnvironment env)
     {
         _blobServiceClient = blobServiceClient;
+        _configuration = configuration;
         _isDevelopment = env.IsDevelopment();
     }
 
@@ -77,7 +79,7 @@ public class SasTokenService : ISasTokenService
             }
 
             // Use the key to get the SAS token
-            var blobKey = Environment.GetEnvironmentVariable("StorageAccountKey");
+            var blobKey = _configuration["blobKey"];
             BlobSasQueryParameters sasQueryParameters = sasBuilder.ToSasQueryParameters(new StorageSharedKeyCredential(_blobServiceClient.AccountName, blobKey));
             string sasToken = sasQueryParameters.ToString();
 
