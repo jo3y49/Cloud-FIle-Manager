@@ -19,7 +19,7 @@ steps:
   displayName: AzureKeyVault
   inputs:
     azureSubscription: '$(azureSubscription)'
-    KeyVaultName: '$(keyVault)'
+    KeyVaultName: '$(keyVaultName)'
     SecretsFilter: '*'  # Fetch all secrets; or specify names like 'secret1,secret2'
     RunAsPreJob: true
 
@@ -50,3 +50,4 @@ steps:
     azureSubscription: '$(azureSubscription)'
     appName: '$(appName)'
     package: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+    appSettings: '-keyVaultName $(keyVaultName)'

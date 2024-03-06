@@ -6,7 +6,7 @@ using FileManager;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var keyVaultName = builder.Configuration["KeyVaultName"];
+var keyVaultName = Environment.GetEnvironmentVariable("keyVaultName");
 builder.Configuration.AddAzureKeyVault(
     new Uri($"https://{keyVaultName}.vault.azure.net/"),
     new DefaultAzureCredential());
