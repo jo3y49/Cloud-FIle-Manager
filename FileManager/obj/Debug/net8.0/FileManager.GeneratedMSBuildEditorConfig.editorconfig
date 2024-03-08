@@ -17,75 +17,75 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FileManager
 build_property.RootNamespace = FileManager
-build_property.ProjectDir = D:\Stuff\Projects\Cloud\FileManager\filemanager\
+build_property.ProjectDir = D:\Stuff\Projects\Cloud\FileManager\FileManager\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Stuff\Projects\Cloud\FileManager\filemanager
+build_property.MSBuildProjectDirectory = D:\Stuff\Projects\Cloud\FileManager\FileManager
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Stuff/Projects/Cloud/FileManager/filemanager/Areas/Identity/Pages/Account/Login.cshtml]
+[D:/Stuff/Projects/Cloud/FileManager/FileManager/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Stuff/Projects/Cloud/FileManager/filemanager/Areas/Identity/Pages/Account/Register.cshtml]
+[D:/Stuff/Projects/Cloud/FileManager/FileManager/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Stuff/Projects/Cloud/FileManager/filemanager/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[D:/Stuff/Projects/Cloud/FileManager/FileManager/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Stuff/Projects/Cloud/FileManager/filemanager/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[D:/Stuff/Projects/Cloud/FileManager/FileManager/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Stuff/Projects/Cloud/FileManager/filemanager/Areas/Identity/Pages/_ViewImports.cshtml]
+[D:/Stuff/Projects/Cloud/FileManager/FileManager/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Stuff/Projects/Cloud/FileManager/filemanager/Areas/Identity/Pages/_ViewStart.cshtml]
+[D:/Stuff/Projects/Cloud/FileManager/FileManager/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Stuff/Projects/Cloud/FileManager/filemanager/Pages/Error.cshtml]
+[D:/Stuff/Projects/Cloud/FileManager/FileManager/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Stuff/Projects/Cloud/FileManager/filemanager/Pages/FileDisplay.cshtml]
+[D:/Stuff/Projects/Cloud/FileManager/FileManager/Pages/FileDisplay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmlsZURpc3BsYXkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Stuff/Projects/Cloud/FileManager/filemanager/Pages/FileUpload.cshtml]
+[D:/Stuff/Projects/Cloud/FileManager/FileManager/Pages/FileUpload.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmlsZVVwbG9hZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Stuff/Projects/Cloud/FileManager/filemanager/Pages/Index.cshtml]
+[D:/Stuff/Projects/Cloud/FileManager/FileManager/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Stuff/Projects/Cloud/FileManager/filemanager/Pages/Privacy.cshtml]
+[D:/Stuff/Projects/Cloud/FileManager/FileManager/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Stuff/Projects/Cloud/FileManager/filemanager/Pages/Shared/_LoginPartial.cshtml]
+[D:/Stuff/Projects/Cloud/FileManager/FileManager/Pages/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Stuff/Projects/Cloud/FileManager/filemanager/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Stuff/Projects/Cloud/FileManager/FileManager/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Stuff/Projects/Cloud/FileManager/filemanager/Pages/_ViewImports.cshtml]
+[D:/Stuff/Projects/Cloud/FileManager/FileManager/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Stuff/Projects/Cloud/FileManager/filemanager/Pages/_ViewStart.cshtml]
+[D:/Stuff/Projects/Cloud/FileManager/FileManager/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Stuff/Projects/Cloud/FileManager/filemanager/Pages/Shared/_Layout.cshtml]
+[D:/Stuff/Projects/Cloud/FileManager/FileManager/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-tznku32ocv

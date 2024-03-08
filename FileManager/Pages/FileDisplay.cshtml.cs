@@ -1,6 +1,4 @@
-using System.Reflection.Metadata;
 using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -10,24 +8,29 @@ namespace FileManager.Pages
     {
         private readonly BlobServiceClient _blobServiceClient;
         private readonly ISasTokenService _sasTokenService;
+        private readonly UserService _userService;
+        private readonly string _containerName;
+
         public List<BlobFileInfo> BlobsInfo = [];
-        public FileDisplayModel(BlobServiceClient blobServiceClient, ISasTokenService sasTokenService)
+        public FileDisplayModel(BlobServiceClient blobServiceClient, ISasTokenService sasTokenService, UserService userService)
         {
             _blobServiceClient = blobServiceClient;
             _sasTokenService = sasTokenService;
+            _userService = userService;
+            _containerName = _userService.GetContainerName();
         }
 
         public async Task OnGetAsync()
         {
-            var containerName = "test-container"; // Specify your container name
-            var blobContainerClient = _blobServiceClient.GetBlobContainerClient(containerName);
+            var blobContainerClient = _blobServiceClient.GetBlobContainerClient(_containerName);
+            await blobContainerClient.CreateIfNotExistsAsync();
 
             await foreach (var blobItem in blobContainerClient.GetBlobsAsync())
             {
                 var fileType = Path.GetExtension(blobItem.Name).ToLower();
 
                 // Use the BlobClient to get the proper URL
-                var sasToken = _sasTokenService.GetBlobSasUri(containerName, blobItem.Name);
+                var sasToken = _sasTokenService.GetBlobSasUri(_containerName, blobItem.Name);
                 var blobUrl = sasToken;
 
                 BlobsInfo.Add(new BlobFileInfo { Name = blobItem.Name, FileType = fileType, Url = blobUrl });
@@ -43,8 +46,7 @@ namespace FileManager.Pages
                     return Content("Filename not specified.");
                 }
 
-                var containerName = "test-container";
-                var blobContainerClient = _blobServiceClient.GetBlobContainerClient(containerName);
+                var blobContainerClient = _blobServiceClient.GetBlobContainerClient(_containerName);
                 
                 var blobClient = blobContainerClient.GetBlobClient(filename);
                 var stream = new MemoryStream();
@@ -70,12 +72,13 @@ namespace FileManager.Pages
                     return Content("Filename not specified.");
                 }
 
-                var containerName = "test-container";
-                var blobContainerClient = _blobServiceClient.GetBlobContainerClient(containerName);
+                var blobContainerClient = _blobServiceClient.GetBlobContainerClient(_containerName);
                 
                 var blobClient = blobContainerClient.GetBlobClient(filename);
-                await blobClient.DeleteIfExistsAsync();
 
+                await _userService.UpdateUserUsedStorageAsync(-blobClient.GetProperties().Value.ContentLength);
+                
+                await blobClient.DeleteIfExistsAsync();
                 return RedirectToPage();
             }
             catch (Exception)
@@ -88,8 +91,7 @@ namespace FileManager.Pages
 
         public async Task<IActionResult> OnPostDeleteAllAsync()
         {
-            var containerName = "test-container";
-            var containerClient = _blobServiceClient.GetBlobContainerClient(containerName);
+            var containerClient = _blobServiceClient.GetBlobContainerClient(_containerName);
             await foreach (var blobItem in containerClient.GetBlobsAsync())
             {
                 var blobClient = containerClient.GetBlobClient(blobItem.Name);
@@ -103,6 +105,8 @@ namespace FileManager.Pages
                     Console.WriteLine($"Failed to delete {blobItem.Name}: {ex.Message}");
                 }
             }
+
+            await _userService.EmptyUserStorageAsync();
 
             // Redirect to the same page to refresh the file list
             return RedirectToPage();

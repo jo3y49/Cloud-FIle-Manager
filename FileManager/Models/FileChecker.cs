@@ -1,5 +1,15 @@
 public static class FileChecker
 {
+    public static float ConvertBytesToMegabytes(long bytes)
+    {
+        return bytes / 1024f / 1024f;
+    }
+
+    public static float ConvertBytesToGigabytes(long bytes)
+    {
+        return bytes / 1024f / 1024f / 1024f;
+    }
+
     public static bool CheckIfImage(string fileType)
     {
         string[] imageTypes = [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".webp"];

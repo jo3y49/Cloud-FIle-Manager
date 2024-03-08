@@ -58,6 +58,8 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddScoped<ISasTokenService, SasTokenService>();
 
+builder.Services.AddScoped<UserService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
