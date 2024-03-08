@@ -8,14 +8,15 @@
 <link href="~/css/fileUpload.css" rel="stylesheet" />
 
 <div>
-    <p>Max Storage: @Model.MaxStorage MB</p>
-    <p>Used Storage: @Model.UsedStorage MB</p>
+    <p>Max Storage: @(Model.MaxStorage) MB</p>
+    <p>Used Storage: @(Model.UsedStorage.ToString("F2")) MB</p>
 </div>
 
 <div id="drop_zone" >
     Drag and drop files here or click to select files
     <div id="filePreview"> </div>
 </div>
+
 <form method="post" asp-page-handler="Upload" enctype="multipart/form-data" style="display: none" >
     <input type="file" id="fileInput" name="files" multiple onchange="handleFiles(this.files)" style="display: none;">
     <input type="submit" value="Upload" class="btn btn-primary btn-sm" id="uploadButton" />

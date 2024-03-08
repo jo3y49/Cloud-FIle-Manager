@@ -13,11 +13,11 @@ public class UserService
         _httpContextAccessor = httpContextAccessor;
     }
 
-    private string GetUserID()
+    public string GetUserID()
     {
-        string userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        string? userId = _httpContextAccessor.HttpContext?.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-        return userId;
+        return userId ?? string.Empty;
     }
 
     public string GetContainerName()

@@ -4,7 +4,7 @@ using Azure.Storage.Sas;
 
 public interface ISasTokenService
 {
-    string GetBlobSasUri(string containerName, string blobName, string policyName = null);
+    string GetBlobSasUri(string containerName, string blobName, string? policyName = null);
 }
 
 public class SasTokenService : ISasTokenService
@@ -20,7 +20,7 @@ public class SasTokenService : ISasTokenService
         _isDevelopment = env.IsDevelopment();
     }
 
-    public string GetBlobSasUri(string containerName, string blobName, string policyName = null)
+    public string GetBlobSasUri(string containerName, string blobName, string? policyName = null)
     {
         // Check if we're in development or production
         if (_isDevelopment)
