@@ -29,7 +29,6 @@
     text-align: center;
     padding: 20px;
     font-size: 20px;
-    color: #cccccc;
     min-height: 300px;
     position: relative;
 }
@@ -38,8 +37,7 @@
 }
 #drop_zone.files-present::after {
     content: 'Drop more files here or click to select'; /* New prompt */
-    font-size: 20px; /* Restore font size */
-    color: #cccccc; /* Text color */
+    font-size: 20px;
 }
 #uploadButton {
     width: 100%;
