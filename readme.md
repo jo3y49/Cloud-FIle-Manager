@@ -1,6 +1,6 @@
 # File Manager Website
 
-My [file management website](https://firstapptesting.azurewebsites.net/) is a web application that allows users to upload, download, and delete their files. It is built using ASP.NET Core and Entity Framework Core, and is hosted on Azure Cloud Services.
+My [file management website](https://joeyfilemanager.azurewebsites.net/) is a web application that allows users to upload, download, and delete their files. It is built using ASP.NET Core and Entity Framework Core, and is hosted on Azure Cloud Services.
 
 ## Features
 
